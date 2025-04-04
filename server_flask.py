@@ -1,5 +1,6 @@
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import torch
+from flask_cors import CORS
 
 # Nombre del modelo en Hugging Face
 model_name = "ealvaradob/bert-finetuned-phishing"
@@ -11,6 +12,9 @@ model = AutoModelForSequenceClassification.from_pretrained(model_name)
 # Enviar el modelo a la GPU si está disponible
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
+
+
+
 
 # Función para clasificar el texto
 def classify_text(text):
@@ -40,6 +44,7 @@ from threading import Thread
 
 # Inicialización de Flask
 app = Flask(__name__)
+CORS(app)
 
 # Ruta principal para la predicción
 @app.route('/nlp/phishing/analyze', methods=['POST'])
