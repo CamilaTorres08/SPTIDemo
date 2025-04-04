@@ -1,19 +1,21 @@
 package edu.eci.spti.demo.service;
 
+import java.util.Map;
+
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
+
 import reactor.core.publisher.Mono;
-import java.util.Map;
 
 @Service
 public class VirusTotalService {
 
     private final WebClient webClient;
-    private String apiKey = "585ec51f0adb7d85abbf1702bdd3ae52f33c5760a98f51b2ce224fa49ff49440";
+    private final String apiKey = "585ec51f0adb7d85abbf1702bdd3ae52f33c5760a98f51b2ce224fa49ff49440";
 
     public VirusTotalService(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder.baseUrl("https://www.virustotal.com/api/v3").build();
