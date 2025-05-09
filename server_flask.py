@@ -13,9 +13,6 @@ model = AutoModelForSequenceClassification.from_pretrained(model_name)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
-
-
-
 # Función para clasificar el texto
 def classify_text(text):
     inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)

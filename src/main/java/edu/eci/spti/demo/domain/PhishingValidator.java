@@ -2,8 +2,6 @@ package edu.eci.spti.demo.domain;
 
 import java.util.regex.Pattern;
 
-import java.util.regex.Pattern;
-
 public class PhishingValidator {
 
     private static final Pattern SUSPICIOUS_URL_PATTERN = Pattern.compile(
